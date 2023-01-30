@@ -51,6 +51,9 @@ void DynamicIntArray::push_back(int val) {
 
 
 void DynamicIntArray::insert(int elem, int pos) {
+  if (pos>size||pos<0){
+    std::cout<<"Error: Invalid position"<<std::endl;}
+  else{
         int *tmp = new int[size + 1];
         for(int i = 0, j = 0; i < size; i++, j++) {
           if( j == pos) {
@@ -63,9 +66,12 @@ void DynamicIntArray::insert(int elem, int pos) {
         size += 1;
         delete [] data;
         data = tmp;
-      } 
+      } }
 
 void DynamicIntArray::remove(int pos) {
+  if (pos>size||pos<0){
+    std::cout<<"Error: Invalid position"<<std::endl;}
+  else {
         int *tmp = new int[size - 1];
         for(int i = 0, j = 0; i < size; i++, j++) {
           if( j == pos)
@@ -75,7 +81,7 @@ void DynamicIntArray::remove(int pos) {
         size -= 1;
         delete [] data;
         data = tmp;
-      }
+      }}
 
 void DynamicIntArray::clear(){
     int* tmp=new int[0];
